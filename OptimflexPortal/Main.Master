@@ -1,0 +1,241 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="OptimflexPortal.Main" %>
+<%@ Register TagName="SideBar" Src="~/SideBar.ascx" TagPrefix="demo" %>
+<!DOCTYPE html>
+
+<html lang="mn">
+<head runat="server">
+    <meta charset="utf-8">
+    <title>Optimflex Business Portal</title>
+    <meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <%--<asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/css/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--  jquery-lang -->
+    <script src="js/plugin/jscookie/js.cookie.js" charset="utf-8" type="text/javascript"></script>
+	<script src="js/plugin/jquery-lang/jquery-lang.js" charset="utf-8" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="css/Site.css" />
+    <link rel="stylesheet" type="text/css" href="js/plugin/devextreme/jslib/18.1.6/css/dx.common.css" />
+    <link rel="dx-theme" data-theme="generic.light" href="js/plugin/devextreme/jslib/18.1.6/css/dx.light.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <script src="js/plugin/devextreme/jslib/18.1.6/js/dx.all.js"></script>
+    <script src="js/app.min.js"></script>--%>
+    <link href="../css/devexpress/bootstrap.min.css" rel="stylesheet" id="themeLink" runat="server" />
+    <link rel="stylesheet" type="text/css" href="js/plugin/devextreme/jslib/18.1.6/css/dx.common.css" />
+    <link rel="dx-theme" data-theme="generic.light" href="js/plugin/devextreme/jslib/18.1.6/css/dx.light.css" />
+    <style type="text/css">
+        #main_btnLogout {
+            display: inline-block;
+            vertical-align: middle;
+            border: 1px solid transparent;
+            border-radius: 2px;
+            background: #333333;
+        }
+        #main_btnLogout .dx-menu-horizontal {
+                padding-top: 30px;
+            }
+            #main_btnLogout .dx-menu-item-content .dx-menu-item-popout-container {
+                width: 0;
+            }
+
+            #main_btnLogout:hover {
+                /*background-color: #fff;*/
+                border: 1px solid #bfbfbf;
+                box-shadow: 0 1px 4px 0 rgba(0,0,0,0.25);
+            }
+
+            #main_btnLogout.active {
+                /*background-color: #dbdbdb;*/
+                box-shadow: inset 0 1px 3px rgba(0,0,0,.15);
+                border: 1px solid #bfbfbf;
+            }
+
+
+            #main_btnLogout .dx-menu-item-wrapper.dx-state-hover {
+                background-color: transparent;
+            }
+
+            #main_btnLogout .dx-menu-item.dx-menu-item-has-submenu.dx-state-hover {
+                background-color: transparent;
+            }
+
+            #main_btnLogout.active .dx-menu-item.dx-menu-item-has-submenu,
+            #main_btnLogout.dx-state-focused .dx-menu-item.dx-state-focused,
+            #main_btnLogout .dx-menu-item.dx-menu-item-expanded {
+                background-color: transparent;
+                box-shadow: none;
+            }
+
+            #main_btnLogout .dx-menu-item-popout {
+                display: none;
+            }
+
+            #main_btnLogout .dx-menu-item-content {
+                padding: 0;
+                width: auto;
+                height: auto;
+            }
+
+            #main_btnLogout .dx-menu-items-container .dx-icon {
+                width: 80px;
+                height: 50px;
+                background-size: auto;
+                font-size: 30px;
+                color: #fff;
+                margin: 0;
+                /*margin: 30px 0 0 0;*/
+            }
+
+            #main_btnLogout.week .dx-menu-items-container .dx-icon {
+                background: url('../images/buttons_sprite.png') no-repeat 0 -104px;
+            }
+
+            #main_btnLogout.weeks .dx-menu-items-container .dx-icon {
+                background: url('../images/buttons_sprite.png') no-repeat -52px -104px;
+            }
+
+            #main_btnLogout.month .dx-menu-items-container .dx-icon {
+                background: url('../images/buttons_sprite.png') no-repeat -104px -104px;
+            }
+
+            #main_btnLogout .dx-menu-items-container .dx-menu-item-text {
+                padding: 0;
+            }
+
+            #main_btnLogout .dx-menu-items-container .dx-context-menu-container-border {
+                border: 0;
+                box-shadow: none;
+            }
+
+            .dx-submenu .dx-menu-items-container li:not(.dx-menu-separator) {
+                height: 40px;
+            }
+
+            .dx-submenu .dx-menu-items-container .dx-menu-item.dx-menu-item-selected > .dx-menu-item-content,
+            .dx-submenu .dx-menu-items-container .dx-menu-item.dx-menu-item-selected.dx-state-focused > .dx-menu-item-content {
+                background-color: #dbdbdb;
+            }
+
+            .dx-submenu .dx-menu-items-container .dx-menu-item.dx-menu-item-selected > .dx-menu-item-content > .dx-menu-item-text,
+            .dx-submenu .dx-menu-items-container .dx-menu-item.dx-menu-item-selected.dx-state-focused > .dx-menu-item-content > .dx-menu-item-text {
+                color: #5d5d5d;
+            }
+
+            .dx-submenu .dx-menu-items-container .dx-menu-item.dx-state-focused > .dx-menu-item-content {
+                background-color: #ededed;
+                color: #5d5d5d;
+            }
+
+            .dx-submenu .dx-menu-items-container .dx-menu-item-text {
+                line-height: 30px;
+            }
+    </style>
+    <asp:PlaceHolder runat="server">
+        <%= Styles.Render("~/bundles/styles") %>
+        <%= Scripts.Render("~/bundles/scripts") %>
+    </asp:PlaceHolder>
+    <script src="js/plugin/devextreme/jslib/18.1.6/js/dx.all.js"></script>
+    <script src="js/app.min.js"></script>
+</head>
+<%--<body class="portal-style">
+    <header id="header">
+		<div id="logo-group">
+            <div id="main_btnHamburger"></div>
+			<span id="logo"> <img src="img/logo.png" alt="Optimflex Business Portal"> </span>
+		</div>
+		<div id="logout" class="btn-header transparent pull-right">
+            <div id="main_btnLogout"></div>
+		</div>
+		<div class="btn-header transparent pull-right">
+            <div id="main_selectLang"></div>
+		</div>
+	</header>
+    <aside id="left-panel">
+		<nav>
+			<ul>
+				<li class="">
+					<a href="#" title="Dashboard"><span class="menu-item-parent">Меню 01</span></a>
+					<ul>
+						<li class="">
+							<a href="ajax/dashboard.html" title="Dashboard"><span class="menu-item-parent">Меню 0101</span></a>
+						</li>
+						<li class="">
+							<a href="ajax/dashboard-marketing.html" title="Marketing"><span class="menu-item-parent">Меню 0102</span></a>
+						</li>
+						<li class="">
+							<a href="ajax/dashboard-social.html" title="Social"><span class="menu-item-parent">Меню 0103</span></a>
+						</li>
+					</ul>	
+				</li>
+				<li class="">
+					<a href="#" title="Dashboard"><span class="menu-item-parent">Меню 02</span></a>
+					<ul>
+						<li class="">
+							<a href="ajax/dashboard.html" title="Dashboard"><span class="menu-item-parent">Меню 0201</span></a>
+						</li>
+					</ul>	
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="main" role="main">
+		<div id="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+		</div>
+	</div>
+	<div class="page-footer">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<span class="txt-color-white">Optimflex Business Portal 0.0.1 <span class="hidden-xs"> - Байгууллагын дотоод үйл ажиллагааны систем</span> © 2018</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>--%>
+<body runat="server" id="body">
+    
+        <nav class="navbar fixed-top" id="navbar">
+            <div class="navbar-brand">
+                <button type="button" class="navbar-toggler" id="collapse-button" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="logo">
+                    <%--<h3><a href="<%= ResolveUrl("~/") %>" target="_top">DevExpress</a></h3>
+                    <h4><a href="<%= ResolveUrl("~/") %>" target="_top">Bootstrap Controls</a></h4>--%>
+                    <img src="img/logo.png" alt="Optimflex Business Portal">
+                </div>
+            </div>
+            <div class="navbar-nav flex-row nav-header">
+                <%--<a class="nav-item nav-link d-none d-md-block" href="<%= DemoUtils.TryUrl %>">Free Trial</a>
+                <a class="nav-item nav-link d-none d-md-block" href="<%= DemoUtils.BuyUrl %>">Buy</a>
+                <a class="nav-item nav-link" href="javascript:void(0);" id="settingsButton"><span class="fa fa-user"></span></a>--%>
+                <div id="main_btnLogout"></div>
+            </div>
+        </nav>
+        <div class="main">
+            <form id="form1" runat="server">
+                <demo:SideBar runat="server"></demo:SideBar>
+                <section id="submenubar" class="d-none d-lg-block" runat="server">
+                    <dx:BootstrapMenu runat="server" ID="subMenu" Orientation="Vertical" ClientIDMode="Static" SyncSelectionMode="None" EnableClientSideAPI="true">
+                        <ItemTemplate>
+                            <a href="#<%# Container.Item.Name%>" class="nav-link">
+                                <span><%# Container.Item.Text %></span>
+                                <%# GetBadgeMarkup((BootstrapMenuItem)Container.Item) %>
+                            </a>
+                        </ItemTemplate>
+                    </dx:BootstrapMenu>
+                </section>
+            </form>
+            <section id="content">
+                <asp:ContentPlaceHolder ID="Content" runat="server" />
+            </section>
+        </div>
+    <div class="loadpanel"></div>
+</body>
+</html>
