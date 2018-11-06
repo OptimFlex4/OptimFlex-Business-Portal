@@ -1,0 +1,15 @@
+﻿{
+  "token": {
+    "Товч": "Button",
+    "Хайх...": "Search...",
+    "Сонго...": "Select...",
+    "Хүснэгтийн шүүлтүүр": "Datagrid filter",
+    "Меню 01": "Menu 01",
+    "Меню 02": "Menu 02"
+  },
+    "regex": [
+        ["Budget", "งบประมาณ"],
+        ["^Something at start of text", ""],
+        ["This will be case insensitive", "i", ""]
+    ]
+}
