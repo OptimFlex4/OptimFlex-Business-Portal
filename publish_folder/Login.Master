@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="OptimflexPortal.Login" %>
+
+<!DOCTYPE html>
+
+<html lang="en-us" id="master-login">
+<head runat="server">
+    <meta charset="utf-8">
+    <title>Optimflex Business Portal</title>
+    <meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/css/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/js/plugin/devextreme/jslib/18.1.6/css/dx.common.css" />
+    <link rel="dx-theme" data-theme="generic.light" href="~/js/plugin/devextreme/jslib/18.1.6/css/dx.light.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/font-awesome.min.css" />
+    <script src="js/plugin/devextreme/jslib/18.1.6/js/dx.all.js"></script>
+</head>
+<body class="dx-viewport">
+    <header id="header">
+		<div id="logo-group">
+			<span id="logo"> <img src="img/logo.png" alt="Optimflex Business Portal"> </span>
+		</div>
+		<span id="master-login-header-space">
+            <% var currPage = Request.Url.Segments.Last(); if (currPage == "Register" || currPage == "ForgotPassword" || currPage == "NewPassword")
+                { %>
+            <span class="hidden-mobile hidden-xs">Өмнө бүртгүүлсэн үү?</span> <div id="loginmaster_btnLogin"></div>
+            <%}
+    else if (currPage == "Login" || currPage == "Verify2FA")
+    { %>
+            <span class="hidden-mobile hidden-xs">Шинээр бүртгүүлэх үү?</span> <div id="loginmaster_btnRegister"></div> 
+            <%} %>
+		</span>
+	</header>
+    <div id="main" role="main">
+		<!-- MAIN CONTENT -->
+		<div id="content" class="container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+		</div>
+	</div>
+    <div class="loadpanel"></div>
+    <script>
+        $(function () {
+            $("#loginmaster_btnLogin").dxButton({
+                text: "Нэвтрэх",
+                type: "default",
+                onClick: function () {
+                    window.location = '../Login';
+                }
+            });
+            $("#loginmaster_btnRegister").dxButton({
+                text: "Бүртгүүлэх",
+                type: "default",
+                onClick: function () {
+                    window.location = '../Register';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
